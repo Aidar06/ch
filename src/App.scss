@@ -1,0 +1,32 @@
+@import "components/Header/headerStyle";
+@import "components/Home/homeStyle";
+@import "pages/Fill/fillStyle";
+@import "blocks/quantityFill/quantityFillStyle";
+@import "pages/Todo/todo";
+
+.App{
+  background: #060511;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+
+body{
+  background: #060511;
+}
+
+.container{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1500px) {
+  .container{
+    width: 90%;
+  }
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
