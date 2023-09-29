@@ -1,0 +1,495 @@
+$bg: rgba(#000, 0);
+$white: #fff;
+$blue: #375dc4;
+
+#water{
+  width: 100%;
+  height: 100vh;
+  .waterBalance{
+    &--header{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 120px;
+      align-items: center;
+      &__set{
+        display: flex;
+        align-items: center;
+        p{
+          font-size: 25px;
+          color: white;
+          cursor: pointer;
+        }
+        div{
+          width: 3px;
+          height: 30px;
+          background: white;
+          margin: 0 10px;
+        }
+      }
+      &__icon{
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+      }
+    }
+    &--bottle{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      .pixel {
+        width: 16 * 1.5px;
+        height: 16 * 1.5px;
+        background: $white;
+        float: left;
+      }
+
+      .bottle {
+        max-width: 144 * 1.5px;
+        width: 144 * 1.5px;
+        height: 208 * 1.5px;
+        max-height: 208 * 1.5px;
+      }
+
+      @for $i from 1 through 3 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+
+      .pixel:nth-child(#{4}) {
+        background: #d56d4a;
+      }
+      .pixel:nth-child(#{5}) {
+        background: darken(#d56d4a, 10);
+      }
+      .pixel:nth-child(#{6}) {
+        background: darken(#d56d4a, 20);
+      }
+
+      @for $i from 7 through 11 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+      .pixel:nth-child(#{13}) {
+        background: lighten(#d56d4a, 15);;
+      }
+      .pixel:nth-child(#{14}) {
+        background: lighten(#d56d4a, 25);
+      }
+      .pixel:nth-child(#{15}) {
+        background: lighten(#d56d4a, 30);;
+      }
+
+      @for $i from 17 through 20 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+
+      .pixel:nth-child(#{22}) {
+        background: #d56d4a;
+      }
+      .pixel:nth-child(#{23}) {
+        background: darken(#d56d4a, 10);
+      }
+      .pixel:nth-child(#{24}) {
+        background: darken(#d56d4a, 20);
+      }
+
+
+      @for $i from 26 through 30 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+      @for $i from 34 through 39 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+      @for $i from 43 through 47 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+      @for $i from 53 through 55 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+      .pixel:nth-child(63) {
+        background: $bg;
+      }
+
+      @for $i from 116 through 117 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+      @for $i from 109 through 110 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+      .pixel:nth-child(32) {
+        background: $bg;
+      }
+
+      .pixel:nth-child(41) {
+        background: $bg;
+      }
+
+      @for $i from 49 through 51 {
+        .pixel:nth-child(#{$i}) {
+          background: $bg;
+        }
+      }
+
+      .pixel:nth-child(57) {
+        background: $blue;
+      }
+
+      @for $i from 59 through 61 {
+        .pixel:nth-child(#{$i}) {
+          background: $blue;
+        }
+      }
+
+      .pixel:nth-child(65) {
+        background: $blue;
+      }
+
+      .pixel:nth-child(74) {
+        background: $blue;
+      }
+
+      @for $i from 67 through 71 {
+        .pixel:nth-child(#{$i}) {
+          background: $blue;
+        }
+      }
+
+      @for $i from 76 through 80 {
+        .pixel:nth-child(#{$i}) {
+          background: $blue;
+        }
+      }
+
+      @for $i from 83 through 87 {
+        .pixel:nth-child(#{$i}) {
+          background: $blue;
+        }
+      }
+
+      .pixel:nth-child(89) {
+        background: $blue;
+      }
+
+      .pixel:nth-child(98) {
+        background: $blue;
+      }
+
+      @for $i from 92 through 97 {
+        .pixel:nth-child(#{$i}) {
+          background: $blue;
+        }
+      }
+
+      .pixel:nth-child(106) {
+        background: $blue;
+      }
+
+      @for $i from 102 through 104 {
+        .pixel:nth-child(#{$i}) {
+          background: $blue;
+        }
+      }
+
+      @keyframes blueColor {
+        0% {
+          background: $blue;
+        }
+        40% {
+          background: lighten($blue, 25);
+        }
+        75% {
+          background: darken($blue, 20);
+        }
+        100% {
+          background: $blue;
+        }
+      }
+    }
+    &--group{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+      &__check{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &--text{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          h3{
+            color: white;
+            font-size: 20px;
+            span{
+              font-size: 14px;
+            }
+          }
+        }
+        &--line{
+          width: 100%;
+          height: 10px;
+          border-radius: 5px;
+          background: white;
+          overflow: hidden;
+          div{
+            height: 100%;
+            background: blue;
+            transition: .5s;
+          }
+      }
+
+      }
+      &__change{
+        margin-top: 10px;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &--btn{
+          width: 100%;
+          color: white;
+          font-size: 30px;
+          display: flex;
+          justify-content: space-evenly;
+        }
+        &--inputs{
+          width: 100%;
+          margin-top: 10px;
+          &__block{
+            width: 100%;
+            height: 80px;
+            border: 1px solid white;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: .5s;
+            h3{
+              color: white;
+              font-size: 20px;
+            }
+            &--range{
+              width: 90%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              font-size: 25px;
+              color: white;
+              input{
+                width: 60%;
+                height: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .water{
+    width: 100%;
+    height: 100vh;
+    &--block{
+      margin-top: 120px;
+      display: flex;
+      justify-content: space-around;
+      &__range{
+        width: 30%;
+        h3{
+          color: white;
+          font-size: 30px;
+        }
+        &--input{
+          margin-top: 10px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          input{
+            width: 100%;
+            height: 4px;
+
+          }
+          &__num{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+              p{
+                color: rgba(255, 255, 255, 0.81);
+                font-size: 14px;
+              }
+          }
+        }
+      }
+    }
+    &--liter{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 80px;
+      h1{
+        color: white;
+        font-size: 80px;
+        span{
+          font-size: 50px;
+        }
+      }
+      div{
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        p{
+          color: white;
+          font-size: 25px;
+          cursor: pointer;
+        }
+        div{
+          margin: 0 10px;
+          width: 3px;
+          height: 30px;
+          background: white;
+        }
+      }
+    }
+    &--btn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 60px;
+      button{
+        width: 130px;
+        padding: 10px 0;
+        color: white;
+        border-radius: 5px;
+        margin: 0 10px;
+        font-size: 20px;
+        background: blue;
+        border: 2px solid blue;
+        &:hover{
+          background: transparent;
+        }
+        &:nth-child(#{2}){
+          background: red;
+          border: 2px solid red;
+          &:hover{
+            background: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 950px) {
+  #water{
+    .waterBalance{
+      &--group{
+        &__check{
+          width: 50%;
+        }
+        &__change{
+          width: 50%;
+        }
+      }
+    }
+    .water{
+      &--block{
+        justify-content: space-between;
+        &__range{
+          width: 40%;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 576px) {
+  #water{
+    .waterBalance{
+      &--group{
+        &__check{
+          width: 70%;
+        }
+        &__change{
+          width: 70%;
+        }
+      }
+    }
+    .water{
+      &--block{
+        justify-content: space-between;
+        &__range{
+          width: 45%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  #water{
+    .waterBalance{
+      &--group{
+        &__check{
+          width: 95%;
+        }
+        &__change{
+          width: 95%;
+        }
+      }
+    }
+    .water{
+      &--block{
+        &__range{
+          h3{
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 375px) {
+
+}
+
+@media (max-width: 320px) {
+
+}

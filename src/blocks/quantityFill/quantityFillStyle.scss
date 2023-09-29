@@ -131,31 +131,6 @@
       &__set {
         justify-content: start;
         margin-top: 20px;
-        &--icons {
-          margin-left: 150px;
-        }
-      }
-    }
-  }
-}
-@media (max-width: 360px) {
-  .QuantityFill {
-    &--group {
-      &__set {
-        &--icons {
-          margin-left: 130px;
-        }
-      }
-    }
-  }
-}
-@media (max-width: 330px) {
-  .QuantityFill {
-    &--group {
-      &__set {
-        &--icons {
-          margin-left: 100px;
-        }
       }
     }
   }
