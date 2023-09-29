@@ -29,7 +29,7 @@ const Home = () => {
                         <LuListTodo className='home--block__icon'/>
                         <h1>to do list</h1>
                     </div>
-                    <div style={{height: `${width}px`, background: 'dodgerblue'}} ref={myElementRef} className='home--block'>
+                    <div onClick={()=> navTo('water')} style={{height: `${width}px`, background: 'dodgerblue'}} ref={myElementRef} className='home--block'>
                         <FaBottleWater className='home--block__icon'/>
                         <h1>water balance</h1>
                     </div>

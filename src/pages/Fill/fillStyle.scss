@@ -177,14 +177,14 @@
         }
 
         &__time {
-          height: 180px;
+          height: 210px;
 
           &--input {
             width: 60%;
           }
         }
         &__quantity {
-          height: 180px;
+          height: 210px;
 
           &--input {
             width: 60%;
@@ -205,9 +205,9 @@
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 451px) {
   #fill {
-    padding: 80px 0;
+    padding: 100px 0;
 
     .fillAdd {
       &--group {
@@ -220,10 +220,10 @@
         }
 
         &__time {
-          height: 180px;
+          height: 200px;
 
           &--input {
-            width: 90%;
+            width: 80%;
           }
         }
       }
