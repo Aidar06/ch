@@ -296,9 +296,21 @@ $blue: #375dc4;
             justify-content: center;
             overflow: hidden;
             transition: .5s;
-            h3{
-              color: white;
-              font-size: 20px;
+            &--text{
+              display: flex;
+              align-items: center;
+              h3{
+                color: white;
+                font-size: 20px;
+              }
+              div{
+                color: white;
+                font-size: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-left: 5px;
+              }
             }
             &--range{
               width: 90%;

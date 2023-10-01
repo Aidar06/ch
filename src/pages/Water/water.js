@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {HiPencil} from "react-icons/hi";
 import {FaMinus, FaPlus} from "react-icons/fa";
 import {BiReset} from "react-icons/bi";
+import {IoMdArrowDropdown, IoMdArrowDropup} from "react-icons/io";
 
-const Water = (effect, deps) => {
+const Water = () => {
     const [obj,setObj] = useState(JSON.parse(localStorage.getItem('checkLifeWater')) || {check:false})
     const [liter,setLiter] = useState(0)
     const [ml,setMl] = useState(0)
@@ -42,8 +43,8 @@ const Water = (effect, deps) => {
     function changeWater(mp){
         let waterObj ={
             check: obj.check,
-            liter: liter,
-            ml: ml,
+            liter: obj.liter,
+            ml: obj.ml,
             doneL: Math.floor( (mp?obj.doneML +  +donePlusValue:obj.doneML -  +doneMinusValue)/1000 *10)/10,
             doneML: mp? obj.doneML + +donePlusValue : obj.doneML - +doneMinusValue,
         }
@@ -257,14 +258,26 @@ const Water = (effect, deps) => {
                                     </div>
                                     <div className="waterBalance--group__change--inputs">
                                         <div style={{height: donePlus? '': '0px',border: donePlus? '': 'none'}} className="waterBalance--group__change--inputs__block">
-                                            <h3>{donePlusValue}ml</h3>
+                                            <div  className="waterBalance--group__change--inputs__block--text">
+                                                <h3>{donePlusValue}ml</h3>
+                                                <div>
+                                                    <IoMdArrowDropup onClick={()=> setDonePlusValue(+donePlusValue !== obj.ml - obj.doneML? +donePlusValue + 1: +donePlusValue)}/>
+                                                    <IoMdArrowDropdown onClick={()=> setDonePlusValue(+donePlusValue !== 0? +donePlusValue - 1: +donePlusValue)}/>
+                                                </div>
+                                            </div>
                                             <div className="waterBalance--group__change--inputs__block--range">
                                                 <input onChange={(e)=> setDonePlusValue(e.target.value)} value={donePlusValue} min={0} max={obj.ml - obj.doneML} type="range"/>
                                                 <FaPlus onClick={()=> changeWater(true)}/>
                                             </div>
                                         </div>
                                         <div style={{height: doneMinus? '': '0px',border: doneMinus? '': 'none'}} className="waterBalance--group__change--inputs__block">
-                                            <h3>{doneMinusValue}ml</h3>
+                                            <div  className="waterBalance--group__change--inputs__block--text">
+                                                <h3>{doneMinusValue}ml</h3>
+                                                <div>
+                                                    <IoMdArrowDropup onClick={()=> setDoneMinusValue(+doneMinusValue !== obj.doneML? +doneMinusValue + 1: +doneMinusValue)}/>
+                                                    <IoMdArrowDropdown onClick={()=> setDoneMinusValue(+doneMinusValue !== 0? +doneMinusValue - 1: +doneMinusValue)}/>
+                                                </div>
+                                            </div>
                                             <div className="waterBalance--group__change--inputs__block--range">
                                                 <input onChange={(e)=> setDoneMinusValue(e.target.value)} value={doneMinusValue} min={0} max={obj.doneML} type="range"/>
                                                 <FaMinus onClick={()=> changeWater(false)}/>
@@ -288,7 +301,7 @@ const Water = (effect, deps) => {
                                     </div>
                                 </div>
                                 <div className="water--block__range">
-                                    <h3>{train}h</h3>
+                                    <h3>{train}h of training</h3>
                                     <div className="water--block__range--input">
                                         <input onChange={(e)=> setTrain(e.target.value)} value={train} type="range" step={0.5} min={0} max={6}/>
                                         <div className="water--block__range--input__num">
