@@ -1,10 +1,11 @@
-import React, {useId, useState} from 'react';
+import React, {useEffect, useId, useState} from 'react';
 import {FaMinus, FaPlus} from "react-icons/fa";
 import {BiReset} from "react-icons/bi";
 import {MdDelete} from "react-icons/md";
 import {IoCheckmarkCircleSharp} from "react-icons/io5";
 import {GrFormCheckmark} from "react-icons/gr";
 import {IoIosCheckmark, IoMdCheckmarkCircleOutline} from "react-icons/io";
+import {HiPencil} from "react-icons/hi";
 
 const QuantityFill = ({obj, index, setRenderChang, renderChang}) => {
     const [minus, setMinus] = useState(false)
@@ -120,12 +121,77 @@ const QuantityFill = ({obj, index, setRenderChang, renderChang}) => {
 //minus-plus-time
 
 
+// change update fill
+    const [change,setChange] = useState(false)
+    const [changeName,setChangeName] = useState('')
+    const [changeNumber,setChangeNumber] = useState('')
+    const [changeTime1,setChangeTime1] = useState('')
+    const [changeTime2,setChangeTime2] = useState('')
+
+    const handleChangeNumber = (event) => {
+        const inputValue = event.target.value;
+        if (inputValue.length <= 5) {
+            setChangeNumber(inputValue);
+        }
+    };
+    const handleChangeTime1 = (event) => {
+        const inputValue = event.target.value;
+        if (inputValue.length <= 2) {
+            setChangeTime1(inputValue);
+        }
+    };
+    const handleChangeTime2 = (event) => {
+        const inputValue = event.target.value;
+        if (inputValue.length <= 2) {
+            setChangeTime2(inputValue);
+        }
+    };
+    useEffect(()=> {
+        setChangeNumber((changeTime1 === ''?'00':changeTime1.length === 1? '0'+changeTime1: changeTime1)+':' + (changeTime2 === ''?'00':changeTime2.length === 1? '0'+changeTime2: changeTime2))
+    },[changeTime1,changeTime2])
+
+    function changeFill(){
+        let listObg = {
+            id: obj.id,
+            done: obj.done,
+            type: obj.type,
+            name: changeName === ''?obj.name:changeName,
+            number: changeNumber === '' || changeNumber === '00:00'?obj.number:changeNumber,
+        }
+        let lists = JSON.parse(localStorage.getItem('checkLifeList')) || []
+        let list = []
+        let newList = lists.map(el => el.id === obj.id ? list.push(listObg) : list.push(el))
+        localStorage.setItem('checkLifeList', JSON.stringify(list))
+        setRenderChang(!renderChang)
+        setChangeName('')
+        setChangeNumber('')
+        setChange(false)
+    }
+// change update fill
+
+
     function objNumC(a) {
         return +(a.split(':')[0] * 60) + +a.split(':')[1]
     }
     return (
         <div key={index} className='QuantityFill'>
-            <h1>{index + 1}. {obj.name}</h1>
+            <div className="QuantityFill--name">
+                <h1>{index + 1}. {obj.name}</h1>
+                <div className="QuantityFill--name__change">
+                    <div style={{width: change? '': '0px'}} className="QuantityFill--name__change--block">
+                        <input onChange={(e)=> setChangeName(e.target.value)} placeholder={obj.name} type="text"/>
+                        {
+                            obj.type === 'q'?
+                                <input onChange={(e)=> handleChangeNumber(e)} value={changeNumber} placeholder={obj.number} type="number" style={{marginLeft: '5px'}}/>:
+                                <div className="QuantityFill--name__change--block__inputs">
+                                    <input onChange={(e)=> handleChangeTime1(e)} value={changeTime1} placeholder={obj.number.split(':')[0]} type="number"/>
+                                    <input onChange={(e)=> handleChangeTime2(e)} value={changeTime2} placeholder={obj.number.split(':')[1]} type="number"/>
+                                </div>
+                        }
+                    </div>
+                    <HiPencil onClick={()=> change? changeName === '' && (changeNumber === '' || changeNumber === '00:00')? setChange(false): changeFill() : setChange(true)} className="QuantityFill--name__change--icon"/>
+                </div>
+            </div>
             {
                 obj.done === obj.number?
                     <div className='QuantityFill--mark'>
