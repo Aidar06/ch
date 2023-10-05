@@ -181,6 +181,9 @@
 
           &--input {
             width: 60%;
+            p{
+              font-size: 20px;
+            }
           }
         }
         &__quantity {
@@ -217,20 +220,6 @@
           &--block {
             font-size: 20px;
           }
-        }
-
-        &__time {
-          height: 200px;
-
-          &--input {
-            width: 80%;
-          }
-        }
-      }
-
-      &__quantity {
-        &--input {
-          width: 80%;
         }
       }
     }

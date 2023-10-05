@@ -301,7 +301,7 @@ const Water = () => {
                                     </div>
                                 </div>
                                 <div className="water--block__range">
-                                    <h3>{train}h of training</h3>
+                                    <h3>{train}h train</h3>
                                     <div className="water--block__range--input">
                                         <input onChange={(e)=> setTrain(e.target.value)} value={train} type="range" step={0.5} min={0} max={6}/>
                                         <div className="water--block__range--input__num">
